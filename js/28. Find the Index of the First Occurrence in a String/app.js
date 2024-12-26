@@ -4,6 +4,7 @@
  * @return {number}
  */
 var strStr = function(haystack, needle) {
+    haystack.indexOf();
     let i = 0;
     let j = 0;
     const haystackLong = haystack.length;
@@ -36,3 +37,4 @@ var strStr = function(haystack, needle) {
 
 let resilt = strStr("ississip","issip");
 console.log(resilt);
+
