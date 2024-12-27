@@ -5,21 +5,13 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-    if(nums.length<1){
-        return init;
-    }
+    let sum = init;
 
-    let i = 1;
-    let j = 0;
-    nums[j]=fn(init,nums[j])
+    nums.forEach(element => {
+        sum = fn(sum,element);
+    });
 
-    while(i<nums.length){
-        nums[i] = fn(nums[j],nums[i]);
-        i++;
-        j++;
-    }
-
-    return nums[nums.length-1];
+    return sum;
 };
 
 const fn = function sum(accum, curr) { return accum + curr * curr; }
