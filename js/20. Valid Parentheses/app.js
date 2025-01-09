@@ -4,27 +4,29 @@
  */
 var isValid = function (s) {
     const stack = [];
-    const matchBrackets = {
+    const brackets = {
         ')':'(',
         ']':'[',
         '}':'{'
     }
 
-    for (let i = 0; i < s.length; i++) {
+    for(let i = 0;i<s.length;i++){
+        const char = s[i];
 
-        if(s[i] === '(' || s[i] === '[' || s[i] == '{'){
-            stack.push(s[i]);
-        }else if(s[i] === ')' || s[i] === ']' || s[i] == '}'){
-
-            if(stack.length === 0 || stack.pop() != matchBrackets[s[i]]){
+        if(char === '(' || char ==='[' || char === '{'){
+            stack.push(char);
+        }else if(char === ')' || char === ']' || char ==='}'){
+            if(stack.length === 0 || brackets[char] != stack.pop()){
                 return false;
             }
         }
+        
     }
+
 
     return stack.length === 0;
 };
 
 
 const fn = isValid;
-console.log(fn('([][]'));
+console.log(fn('([][])'));
